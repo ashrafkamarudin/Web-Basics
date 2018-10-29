@@ -1,6 +1,6 @@
-# Web Basics
+# Web Basics :smirk: :laughing:
 
-## About This Project
+## About This Project :sunglasses:
 
 
 This Web Basics is all about learning and understanding the basics of programming. One thing you have to keep in mind though, this web basic only show and teach you the most basic of stuff that you will often see in web development. The main purpose of Web Basics is only to get you started. If you are looking for more advanced or more details about PHP, you can visit w3schools or other online materials.
@@ -10,7 +10,7 @@ Web Basics contains tutorial and/or explaination about most if not everything th
 I also include a basic MVC structure for you to get started.
 
 
-## Contents
+## :notebook: Contents
 
 ### HTML-Basic
 
@@ -18,7 +18,7 @@ I also include a basic MVC structure for you to get started.
 
 ### PHP-Basic
 
-* [Part 1:Variables](https://github.com/ashrafkamarudin/Web-Basics/blob/master/PHP-Basic/1-variables.php)
+* [Part 1:Variables](https://github.com/ashrafkamarudin/Web-Basics/blob/master/PHP-Basic/1-Variables.php)
 * [Part 2:Array](https://github.com/ashrafkamarudin/Web-Basics/blob/master/PHP-Basic/2-Array.php)
 * [Part 3:Operators](https://github.com/ashrafkamarudin/Web-Basics/blob/master/PHP-Basic/3-Operators.php)
 * [Part 4:Functions](https://github.com/ashrafkamarudin/Web-Basics/blob/master/PHP-Basic/4-Functions.php)
@@ -29,7 +29,22 @@ I also include a basic MVC structure for you to get started.
 * [Part 6:Loop - For Loop](https://github.com/ashrafkamarudin/Web-Basics/blob/master/PHP-Basic/6-Loop-ForLoop.php)
 * [Part 6:Loop - Foreach](https://github.com/ashrafkamarudin/Web-Basics/blob/master/PHP-Basic/6-Loop-WhileLoop.php)
 
-### Basic-MVC
+### :trophy: Basic-MVC
+
+#### File Structure
+* Basic-MVC
+	* Controller
+		* UserController.php
+	* libs
+		* Bootstrap.php
+		* Config.php
+		* Database.php
+		* Session.php
+	* Model
+		* User.php
+	* View
+		* index.php
+		* add.php
 
 
 ## Authors
