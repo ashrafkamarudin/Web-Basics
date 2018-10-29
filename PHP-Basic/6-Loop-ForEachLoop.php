@@ -1,3 +1,11 @@
+<!--
+
+Learn basic PHP by Ashraf Kamarudin.
+
+Part 6 : Foreach
+
+-->
+
 <?php
 
 // first make an array

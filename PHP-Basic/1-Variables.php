@@ -11,7 +11,8 @@ Variables is a storage location which contains a value
 <?php
 
 
-// this is how you declare a variable in PHP
+// this is how you declare a variable in PHP. 
+// this also means you assign the string to the variable
 $variable = "This is a variable"; // string
 $number = 5; // numbers
 

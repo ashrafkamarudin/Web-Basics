@@ -1,3 +1,11 @@
+<!--
+
+Learn basic PHP by Ashraf Kamarudin.
+
+Part 5 : Switch Case
+
+-->
+
 <?php
 
 
@@ -8,15 +16,15 @@ $test = "success";
 // the case with same value will be executed
 // if no case have same value then defaul block will be executed
 switch ($test) {
-	case 1:
+	case 1: // case with Interger
 		echo 1;
 		break;
 
-	case "success":
+	case "success": // case with string
 		echo "success";
 		break;
 	
-	default:
+	default: // default case will run when no case is true
 		echo "fail";
 		break;
 }

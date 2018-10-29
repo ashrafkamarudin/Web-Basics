@@ -1,3 +1,11 @@
+<!--
+
+Learn basic PHP by Ashraf Kamarudin.
+
+Part 6 : For Loop
+
+-->
+
 <?php
 
 // this is how you do looping in PHP

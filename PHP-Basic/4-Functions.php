@@ -1,3 +1,11 @@
+<!--
+
+Learn basic PHP by Ashraf Kamarudin.
+
+Part 4 : Functions
+
+-->
+
 <?php
 
 // this is how you call a function in PHP

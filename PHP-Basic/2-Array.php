@@ -11,7 +11,7 @@ Array is a special variable that can hold a collection of data
 <?php 
 
 
-// For example you have a collection of data of user.
+// for example you have a collection of data of user.
 // you can store all of them in one single array variable like so
 $users = ['Ashraf', 'Kamarudin']; // this one users variable has 2 data in it.
                                   // first one is Ashraf

@@ -1,3 +1,11 @@
+<!--
+
+Learn basic PHP by Ashraf Kamarudin.
+
+Part 6 : Do While
+
+-->
+
 <?php
 
 $i = 0; // you need to initialize $i variable first with a value
