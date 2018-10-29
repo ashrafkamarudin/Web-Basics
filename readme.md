@@ -34,7 +34,7 @@ I also include a basic MVC structure for you to get started.
 
 ## Authors
 
-* **Ashraf Kamarudin**
+* [Ashraf Kamarudin](https://ashrafkamarudin.github.io/)
 
 ## License
 
