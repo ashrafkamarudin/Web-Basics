@@ -2,7 +2,7 @@
 
 require_once '../libs/Bootstrap.php';
 
-$controller = new ViewController();
+$controller = new UserController();
 
 if (isset($_POST['submit'])) {
 	$users = $controller->add();

@@ -1,10 +1,15 @@
 <?php
 
 require_once '../libs/Bootstrap.php';
+require_once '../Controller/UserController.php';
 
-$controller = new ViewController();
+$controller = new UserController();
 
 $users = $controller->index();
+
+if (isset($_POST['delete'])) {
+  $controller->destroy($_POST['delete']);
+}
 
 ?>
 
@@ -46,9 +51,9 @@ $users = $controller->index();
                 			<td><? echo $user->name; ?></td>
                 			<td><? echo $user->email; ?></td>
                 			<td>
-                				<form method="POST">
+                				<form method="POST" action="">
                 					<input type="hidden" name="delete" value="<? echo $user->id; ?>">
-                					<input type="submit" name="btnDelete" value="Delete">
+                					<input type="submit" name="btnDelete" class="btn btn-danger" value="Delete">
                 				</form>
                 			</td>
                 			</tr>
