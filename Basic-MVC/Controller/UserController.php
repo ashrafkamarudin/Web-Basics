@@ -31,8 +31,17 @@ class UserController
 		$user->save();
 
 		// set message
-		Session::setFlash(['Success'], 'success');
+		Session::setFlash(['New record succesfully added'], 'success');
 		return $this->redirect('index.php');
+	}
+
+	public function get($id)
+	{
+		// get user object associate with $id
+		$user = User::getById($id);
+
+		// return user object with the user details
+		return $user;
 	}
 
 	public function update($id)
@@ -49,10 +58,10 @@ class UserController
 		$user->update();
 
 		// set message
-		Session::setFlash(['Success'], 'success');
+		Session::setFlash(['The record has been updated'], 'success');
 
 		// redirect the page
-		return $this->redirect('http://localhost/web-basics/basic-mvc/View/');
+		return $this->redirect('index.php');
 	}
 
 	public function destroy($id)
@@ -63,10 +72,10 @@ class UserController
 		$user->delete();
 
 		// set message
-		Session::setFlash(['Success'], 'success');
+		Session::setFlash(['The record has been successfully deleted'], 'success');
 
 		// redirect the page
-		return $this->redirect('http://localhost/web-basics/basic-mvc/View/');
+		return $this->redirect('index.php');
 	}
 
 	public function redirect($url) {

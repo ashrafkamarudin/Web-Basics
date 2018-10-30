@@ -5,8 +5,12 @@ require_once '../Controller/UserController.php';
 
 $controller = new UserController();
 
-if (isset($_POST['submit'])) {
-	$users = $controller->add();
+if (isset($_POST['update'])) {
+	$users = $controller->update($_POST['id']);
+}
+
+if (isset($_GET['id'])) {
+  $user = $controller->get($_GET['id']);
 }
 
 ?>
@@ -30,16 +34,17 @@ if (isset($_POST['submit'])) {
             <form action="" method="post" role="form">
               <!-- text input -->
               <div class="form-group">
-                <label>Name</label> <input class="form-control" name="name" placeholder="Enter Full Name" type="text">
+                <label>Name</label> <input class="form-control" name="name" placeholder="Enter Full Name" type="text" value="<?php echo $user->name; ?>">
               </div>
               <div class="form-group">
-                <label>E-Mail</label> <input class="form-control" name="email" placeholder="Enter E-Mail Address" type="text">
+                <label>E-Mail</label> <input class="form-control" name="email" placeholder="Enter E-Mail Address" type="text" value="<?php echo $user->email; ?>">
               </div>
               <div class="form-group">
-                <label>Password</label> <input class="form-control" name="password" placeholder="Enter Password" type="password">
+                <label>Password</label> <input class="form-control" name="password" placeholder="Enter Password" type="password" value="<?php echo $user->password; ?>">
               </div>
               <div class="form-group">
-                <input class="btn btn-primary" name="submit" placeholder="" type="submit">
+                <input type="hidden" name="id" value="<?php echo $user->id; ?>">
+                <input class="btn btn-primary" name="update" placeholder="" type="submit" value="update">
               </div>
             </form>
           </div><!-- /.card-body -->

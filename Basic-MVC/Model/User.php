@@ -15,17 +15,17 @@ class User
 	];
 
 	// override magic method to set properties
-	public function __set($field, $value)
+	public function __set($attribute, $value)
 	{
-		if (array_key_exists($field, $this->fields)) {
-			$this->fields[$field] = $value;
+		if (array_key_exists($attribute, $this->attributes)) {
+			$this->attributes[$attribute] = $value;
 		}
 	}
 
 	// override magic method to retrieve properties
 	public function __get($attribute)
 	{
-		if ($field == 'id') {
+		if ($attribute == 'id') {
 			return $this->id;
 		} else {
 			return $this->attributes[$attribute];
@@ -106,8 +106,8 @@ class User
 								 // database
 
 				// need to use fetch to retrieve only 1 row of data
-				$data = $stmt->fetch(PDO::FETCH_ASSOC) // this will retrieve the row of data
-													   // that is associated to the passed id
+				$data = $stmt->fetch(PDO::FETCH_ASSOC); // this will retrieve the row of data
+													    // that is associated to the passed id
 
 				// foreach column of the data as (column name) => (value of the column)
 				foreach ($data as $column => $value) { // $column is the key of this array 
@@ -154,7 +154,7 @@ class User
 
 	public function update()
 	{
-		$query = "UPDATE SET `name`=:name, `email`=:email, `password`=:password WHERE `id`=:id";
+		$query = "UPDATE `users` SET `name`=:name, `email`=:email, `password`=:password WHERE `id`=:id";
 		$param = [ // the parameter that will be bind by pdo
 			':name' => $this->name,
 			':email' => $this->email,
