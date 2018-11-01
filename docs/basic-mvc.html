@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <title>Cheatsheet Concept</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css'>
+    <link rel='stylesheet prefetch' href='https://use.fontawesome.com/releases/v5.3.1/css/all.css'>
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/themes/prism.min.css'>
+    <link rel="stylesheet" href="../css/cheatsheet.css">
+
+    <style type="text/css">
+      .sticky {
+        position: -webkit-sticky;
+        position: -moz-sticky;
+        position: -o-sticky;
+        position: -ms-sticky;
+        position: sticky;
+        top: 10px;
+        z-index: 1;
+      }
+
+      .is-file {
+        color: orange;
+        font-weight: bold;
+      }
+
+      aside {
+        padding-top: 90px
+      }
+
+      :target {  
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <div class="columns">
+          <div class="column is-12">
+            <div class="container content">
+              <i class="is-large fab fa-discord"></i>
+              <i class="is-large fas fa-code"></i>
+              <h1 class="title">Learn <em>Web Basics</em> for new-dev</h1>
+              <h3 class="subtitle">
+              Collection of code and explanation to get you started
+              </h3>
+              <a href="https://github.com/#" target="_blank" class="button is-primary is-large">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Github</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-3">
+            <aside class="is-medium menu sticky" id="root">
+          <p class="menu-label">
+            categories
+          </p>
+          <ul class="menu-list">
+            <li><a href="index.html" class=""><i class="fab fa-html5"></i> Basic - HTML</a></li>
+            <li><a href="php.html" class=""><i class="fab fa-php"></i> Basic - PHP</a></li>
+            <li><a href="basic-mvc.html" class="is-active"><i class="fab fa-web"></i> Basic - MVC</a></li>
+          </ul>
+              <p class="menu-label">
+                In This Category ...
+              </p>
+              <ul class="menu-list">
+                <li><a href="#gettingStarted">Getting Started</a></li>
+                <li><a href="#view">The View</a></li>
+                <li><a href="#libs">Library</a></li>
+                <li><a href="#model">Model</a></li>
+                <li><a href="#controller">Controller</a></li>
+              </ul>
+            </aside>
+          </div>
+          <div class="column is-9">
+            <div class="content is-medium">
+          <h1 class="title is-1">Basic MVC ¯\_(ツ)_/¯</h1><hr>
+
+          <p>This is a tutorial for creating your first web application using basic MVC structure.<p>
+          <p>We will be using PHP programming language for this tutorial so you should at least have basic knowledge on programming, preferably PHP.</p>
+
+          <div id="gettingStarted">
+            <br>
+            <h2 class="title is-2">Getting Started</h2><hr>
+            <h4 class="title is-4">Things that you need to know</h4>
+            <p>
+              Before you dive into this tutorial, you must first have learn and understand these first.<br>
+              Preferably in PHP because PHP is the language that we will be using in this tutorial.
+            </p>
+            
+                  <article class="message is-primary">
+                  <ul>
+                    <li>Variables</li>
+                    <li>Array</li>
+                    <li>Foreach Loop</li>
+                    <li>Class</li>
+                    <li>Static Methods</li>
+                  </ul>
+                  </article>
+
+            <h4 class="title is-4">Prerequisite</h4>
+              <p>You will need a basic stacks for web development like XAMPP, WAMP, LAMP or MAMP.<br>
+
+              Or anything else that have the following installed :
+              </p>
+                  <article class="message is-primary">
+                  <ul>
+                    <li>PHP</li>
+                    <li>MySQL</li>
+                  </ul>
+                  </article>
+
+              <h4>Folder Structure</h4>
+                <p>After you're setting up you web development environtment, create a folder structute like so</p>
+
+                <img src="images/folder-structure.png">
+          </div>
+            <br>
+          <div id="view"><br>
+            <h2 class="title is-2">The Views</h2><hr>
+
+            <p>First, Let's create the view for our web app. Let's use <a href="https://getbootstrap.com/docs/4.1/getting-started/download/">Bootstrap</a> as our front-end framework.</p>
+
+            <p>Create 3 new php file under views folder like so</p>
+
+            <img src="images/view-structure.png">
+
+            <p>I will let you design the view yourself ^_^ ~</i></p>
+
+          </div><br>
+
+          <div id="libs"><br>
+            <h2 class="title is-2">Library</h2><hr>
+            <p>This folder is called library because it contains files that will be used by our application.</p>
+            <p>
+            Create 2 file called Config.php and Database.php under libs directory. Config.php will have our database config in it while Database.php will have our application database connection.</p>
+
+            <p>in <i class="is-file">Config.php</i>, add the following.</p>
+
+            <pre><code class="language-php">
+/*
+* Database Settings
+*/
+
+// define a constant variable to store our database settings
+define('DB_TYPE', 'mysql');
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'MVC');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+            </code></pre>
+
+            <p>Then create <i class="is-file">Database.php</i> and create a DB class with 2 static method as follow.</p>
+
+            <pre><code class="language-php">
+class DB
+{
+
+  public static function connect($value='')
+  {
+    // create a new PDO connection
+    $pdo = new PDO(DB_TYPE.':host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    return $pdo;
+  }
+
+  public static function run($sql, $args = NULL)
+    {
+        if (!$args) // if no parameter
+        {
+          // run the query straight away without parameter binding
+             return DB::connect()->query($sql);
+        }
+        // prepare the sql query
+        $stmt = DB::connect()->prepare($sql);
+        // execute the query with bind parameter values
+        $stmt->execute($args);
+        return $stmt;
+    }
+}
+            </code></pre>
+            <p>Then create a <i class="is-file">Bootstrap.php</i> file. This file will require all class that will be used by our application.<br></p>
+            <pre><code class="language-php">
+session_start();
+
+require_once dirname(__FILE__) . '/Config.php';
+require_once dirname(__FILE__) . '/Database.php';
+// you can require more file here if you have more library to load
+            </code></pre>
+          </div><br>
+
+          <div id="model"><br>
+            <h2 class="title is-2">Model</h2><hr>
+            <p>Next we will create our model in the model directory called <i class="is-file">User.php</i> and add User class into it</p>
+              <pre><code class="language-php">
+class User
+{
+  protected $table = 'users';
+  protected $id;
+  protected $attributes = [
+    'name' => '',
+    'email' => '',
+    'password' => ''
+  ]; // this is the class attributes that will be filled by data from column in database
+
+  // override magic method to set properties
+  public function __set($attribute, $value)
+  {
+    // this will get values of the class attributes
+    if (array_key_exists($attribute, $this->attributes)) {
+      $this->attributes[$attribute] = $value;
+    }
+  }
+
+  // override magic method to retrieve properties
+  public function __get($attribute)
+  {
+    // this will assign values to the class attributes
+    if ($attribute == 'id') {
+      return $this->id;
+    } else {
+      return $this->attributes[$attribute];
+    }
+  }
+
+  public static function All()
+  {
+    // This method will access the database and retrieve all user data in the database 
+    // Then it will create a new user object and assign user's data into the object's attributes.
+    // Next it will add the user object into an array called $users
+    // Finallt it will return the array filled with user object to the controller
+  }
+
+  public static function getById($id)
+  {
+    //
+  }
+
+  public function save()
+  {
+    // 
+  }
+
+  public function update()
+  {
+    //
+  }
+
+  public function delete()
+  {
+    //
+  }
+}
+              </code></pre>
+            </div><br>
+
+          <div id="controller"><br>
+            <h2 class="title is-2">Controller</h2>
+            <hr>
+            <p>Create a new Controller file called <i class="is-file">UserController.php</i> under Controller directory like so :</p>
+
+            <p>
+              Then create a controller class with 5 method, index(), add(), get(), update() and destroy()<br>
+              We will add the logic inside the method later.
+            </p>
+
+            <p>First, require user model file that we will create after this in the top of controller's file</p>
+            <pre><code class="language-php">require_once '../Model/User.php';</code></pre>
+            <p>Next, Create a UserController class</p>
+            <pre><code class="language-php">
+class UserController
+{
+
+  public function index($value='')
+  {
+    // This function will get all user from model
+    // and return all user data to the interface
+  }
+
+  public function add($value='')
+  {
+    // This method will add new user
+  }
+
+  public function get($id)
+  {
+    // This method will get 1 user
+  }
+
+  public function update($id)
+  {
+    // This method will update 1 user
+  }
+
+  public function destroy($id)
+  {
+    // This function will delete user
+  }
+}
+              </code></pre>
+          </div>
+
+              <div class="box">
+                <h4 id="const" class="title is-3">const</h4>
+                <article class="message is-primary">
+                  <span class="icon has-text-primary">
+                  <i class="fab fa-js"></i>
+                  </span>
+                  <div class="message-body">
+                    Block-scoped. Cannot be re-assigned. Not immutable.
+                  </div>
+                </article>
+              <pre><code class="language-javascript">const test = 'test';</code></pre>
+            </div>
+            <div class="box">
+              <h4 id="let" class="title is-3">let</h4>
+              <article class="message is-primary">
+                <span class="icon has-text-primary">
+                  <i class="fas fa-info-circle"></i>
+                </span>
+                <div class="message-body">
+                  Block-scoped. Can be re-assigned.
+                </div>
+              </article>
+            <pre><code class="language-javascript">let i = 0;</code></pre>
+          </div>
+          <h3 class="title is-3">More to Come...</h3>
+          <div class="box">
+            <h4 id="lorem" class="title is-4">More to come...</h4>
+            <article class="message is-primary">
+              <span class="icon has-text-primary">
+                <i class="fas fa-info-circle"></i>
+              </span>
+              <div class="message-body">
+                Lorem ipsum dolor sit amet, mea ne viderer veritus menandri, id scaevola gloriatur instructior sit.
+              </div>
+            </article>
+          <pre><code class="language-javascript">let i = 0;</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<footer class="footer">
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+      <div class="column is-one-third">
+        <article class="notification media has-background-white">
+          <figure class="media-left">
+            <span class="icon">
+              <i class="has-text-warning fas fa-columns fa-lg"></i>
+            </span>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              <h1 class="title is-size-4">Columns</h1>
+              <p class="is-size-5 subtitle">
+                The power of <strong>Flexbox</strong> in a simple interface
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="column is-one-third">
+        <article class="notification has-background-white media">
+          <figure class="media-left">
+            <span class="icon has-text-info">
+              <i class="fab fa-lg fa-wpforms"></i>
+            </span>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              <h1 class="title is-size-4">Form</h1>
+              <p class="is-size-5 subtitle">
+                The indispensable <strong>form controls</strong>, designed for maximum clarity
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="column is-one-third">
+        <article class="notification has-background-white media">
+          <figure class="media-left">
+            <span class="icon has-text-danger">
+              <i class="fas fa-lg fa-cubes"></i>
+            </span>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              <h1 class="title is-size-4">Components</h1>
+              <p class="is-size-5 subtitle">
+                Advanced multi-part components with lots of possibilities
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="column is-one-third">
+        <article class="notification has-background-white media">
+          <figure class="media-left">
+            <span class="icon has-text-grey">
+              <i class="fas fa-lg fa-cogs"></i>
+            </span>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              <h1 class="title is-size-4">Modifiers</h1>
+              <p class="is-size-5 subtitle">
+                An <strong>easy-to-read</strong> naming system designed for humans
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="column is-one-third">
+        <article class="notification has-background-white media">
+          <figure class="media-left">
+            <span class="icon has-text-primary">
+              <i class="fas fa-lg fa-warehouse"></i>
+            </span>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              <h1 class="title is-size-4">Layout</h1>
+              <p class="is-size-5 subtitle">
+                Design the <strong>structure</strong> of your webpage with these CSS classes
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="column is-one-third">
+        <article class="notification has-background-white media">
+          <figure class="media-left">
+            <span class="icon has-text-danger">
+              <i class="fas fa-lg fa-cube"></i>
+            </span>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              <h1 class="title is-size-4">Elements</h1>
+              <p class="is-size-5 subtitle">
+                Essential interface elements that only require a <strong>single CSS class</strong>
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+<hr>
+<div class="columns is-mobile is-centered">
+  <div class="field is-grouped is-grouped-multiline">
+    <div class="control">
+      <div class="tags has-addons"><a class="tag is-link" href="https://github.com/dansup/bulma-templates">Bulma Templates</a>
+      <span class="tag is-info">MIT license</span>
+    </div>
+  </div>
+  <div class="control">
+    <div class="tags has-addons">
+      <span class="tag is-dark">based on a pen</span>
+      <span class="tag has-addons is-warning"><a href="https://codepen.io/melanieseltzer/pen/odOXWM"><i class="fab fa-lg fa-codepen"></i></a></span>
+    </div>
+  </div>
+</div>
+</div>
+
+</footer>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.js'></script>
+</body>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script type="text/javascript">
+  const app = new Vue ({
+    el: '#root',
+    data: {
+      message: 'hello',
+      params : '',
+    },
+    mounted() {
+      this.params = location.hash;
+    }
+  })
+</script>
