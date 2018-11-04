@@ -43,13 +43,13 @@ if (isset($_POST['delete'])) {
                   <? foreach ($users as $user) { ?>
                   <tr>
                     <tr>
-                      <td><? echo $user->id; ?></td>
-                      <td><? echo $user->name; ?></td>
-                      <td><? echo $user->email; ?></td>
+                      <td><? echo $user['id']; ?></td>
+                      <td><? echo $user['name']; ?></td>
+                      <td><? echo $user['email']; ?></td>
                       <td>
-                        <a href="update.php?id=<?php echo $user->id; ?>" class="btn btn-success pull-left" style="margin-right: 5px">Edit</a>
+                        <a href="update.php?id=<?php echo $user['id']; ?>" class="btn btn-success pull-left" style="margin-right: 5px">Edit</a>
                         <form method="POST" action="">
-                          <input type="hidden" name="delete" value="<? echo $user->id; ?>">
+                          <input type="hidden" name="delete" value="<? echo $user['id'] ?>">
                           <input type="submit" name="btnDelete" class="btn btn-danger" value="Delete" onclick="return confirm('Are you sure you want to delete?')">
                         </form>
                       </td>

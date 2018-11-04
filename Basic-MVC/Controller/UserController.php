@@ -46,10 +46,12 @@ class UserController
 
 	public function update($id)
 	{
-		// get user object associate with $id
-		$user = User::getById($id);
+		// get user data associate with $id
+		$findUser = User::getById($id);
 
 		// update/set the attributes of the user
+		$user = new User();
+		$user->id = $findUser['id'];
 		$user->name = $_POST['name'];
 		$user->email = $_POST['email'];
 		$user->password = $_POST['password'];
@@ -66,9 +68,13 @@ class UserController
 
 	public function destroy($id)
 	{
-		// get user object associate with $id
-		$user = User::getById($id);
-		// delete the user object
+		// get user data associate with $id
+		$findUser = User::getById($id);
+
+		// update/set the attributes of the user
+		$user = new User();
+		$user->id = $findUser['id'];
+		// delete the user
 		$user->delete();
 
 		// set message
@@ -76,6 +82,14 @@ class UserController
 
 		// redirect the page
 		return $this->redirect('index.php');
+	}
+
+	public function search($value='')
+	{
+		
+		$users = User::Searchable('name', $_GET['q']);
+
+		return $users;
 	}
 
 	public function redirect($url) {
