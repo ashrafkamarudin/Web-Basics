@@ -98,7 +98,7 @@
               Preferably in PHP because PHP is the language that we will be using in this tutorial.
             </p>
             
-                  <article class="message is-primary">
+                  <article>
                   <ul>
                     <li>Variables</li>
                     <li>Array</li>
@@ -106,26 +106,25 @@
                     <li>Class</li>
                     <li>Static Methods</li>
                   </ul>
-                  </article>
+                  </article><br>
 
             <h4 class="title is-4">Prerequisite</h4>
               <p>You will need a basic stacks for web development like XAMPP, WAMP, LAMP or MAMP.<br>
 
               Or anything else that have the following installed :
               </p>
-                  <article class="message is-primary">
+                  <article>
                   <ul>
                     <li>PHP</li>
                     <li>MySQL</li>
                   </ul>
-                  </article>
+                  </article><br>
 
               <h4>Folder Structure</h4>
                 <p>After you're setting up you web development environtment, create a folder structute like so</p>
 
                 <img src="images/folder-structure.png">
           </div>
-            <br>
           <div id="view"><br>
             <h2 class="title is-2">The Views</h2><hr>
 
@@ -147,6 +146,17 @@
 
             <p>in <i class="is-file">Config.php</i>, add the following.</p>
 
+            <div class="box">
+                <h4 id="const" class="title is-3">Config.php</h4>
+                <article class="message is-primary">
+                  <span class="icon has-text-primary">
+                  <i class="fab fa-php"></i>
+                  </span>
+                  <div class="message-body">
+                    This will contain all config settings
+                  </div>
+                </article>
+
             <pre><code class="language-php">
 /*
 * Database Settings
@@ -160,7 +170,20 @@ define('DB_USER', 'root');
 define('DB_PASS', '');
             </code></pre>
 
+            </div>
+
             <p>Then create <i class="is-file">Database.php</i> and create a DB class with 2 static method as follow.</p>
+
+            <div class="box">
+                <h4 id="const" class="title is-3">Database.php</h4>
+                <article class="message is-primary">
+                  <span class="icon has-text-primary">
+                  <i class="fab fa-php"></i>
+                  </span>
+                  <div class="message-body">
+                    This will contain database class for database connection
+                  </div>
+                </article>
 
             <pre><code class="language-php">
 class DB
@@ -190,7 +213,21 @@ class DB
     }
 }
             </code></pre>
+            </div>
+
             <p>Then create a <i class="is-file">Bootstrap.php</i> file. This file will require all class that will be used by our application.<br></p>
+
+            <div class="box">
+                <h4 id="const" class="title is-3">Bootstrap.php</h4>
+                <article class="message is-primary">
+                  <span class="icon has-text-primary">
+                  <i class="fab fa-php"></i>
+                  </span>
+                  <div class="message-body">
+                    This file will load all required file the application need.
+                  </div>
+                </article>
+
             <pre><code class="language-php">
 session_start();
 
@@ -200,9 +237,23 @@ require_once dirname(__FILE__) . '/Database.php';
             </code></pre>
           </div><br>
 
+          </div>
+
           <div id="model"><br>
             <h2 class="title is-2">Model</h2><hr>
             <p>Next we will create our model in the model directory called <i class="is-file">User.php</i> and add User class into it</p>
+
+            <div class="box">
+                <h4 id="const" class="title is-3">User.php</h4>
+                <article class="message is-primary">
+                  <span class="icon has-text-primary">
+                  <i class="fab fa-php"></i>
+                  </span>
+                  <div class="message-body">
+                    This is a model file for User which will contain all database operation like Create, Read, Update and Delete
+                  </div>
+                </article>
+
               <pre><code class="language-php">
 class User
 {
@@ -263,6 +314,8 @@ class User
   }
 }
               </code></pre>
+
+              </div>
             </div><br>
 
           <div id="controller"><br>
@@ -278,6 +331,18 @@ class User
             <p>First, require user model file that we will create after this in the top of controller's file</p>
             <pre><code class="language-php">require_once '../Model/User.php';</code></pre>
             <p>Next, Create a UserController class</p>
+
+            <div class="box">
+                <h4 id="const" class="title is-3">UserController.php</h4>
+                <article class="message is-primary">
+                  <span class="icon has-text-primary">
+                  <i class="fab fa-php"></i>
+                  </span>
+                  <div class="message-body">
+                    This is a controller file for User Model which will control/call the database operation from the model.
+                  </div>
+                </article>
+
             <pre><code class="language-php">
 class UserController
 {
@@ -309,45 +374,9 @@ class UserController
   }
 }
               </code></pre>
-          </div>
 
-              <div class="box">
-                <h4 id="const" class="title is-3">const</h4>
-                <article class="message is-primary">
-                  <span class="icon has-text-primary">
-                  <i class="fab fa-js"></i>
-                  </span>
-                  <div class="message-body">
-                    Block-scoped. Cannot be re-assigned. Not immutable.
-                  </div>
-                </article>
-              <pre><code class="language-javascript">const test = 'test';</code></pre>
-            </div>
-            <div class="box">
-              <h4 id="let" class="title is-3">let</h4>
-              <article class="message is-primary">
-                <span class="icon has-text-primary">
-                  <i class="fas fa-info-circle"></i>
-                </span>
-                <div class="message-body">
-                  Block-scoped. Can be re-assigned.
-                </div>
-              </article>
-            <pre><code class="language-javascript">let i = 0;</code></pre>
-          </div>
-          <h3 class="title is-3">More to Come...</h3>
-          <div class="box">
-            <h4 id="lorem" class="title is-4">More to come...</h4>
-            <article class="message is-primary">
-              <span class="icon has-text-primary">
-                <i class="fas fa-info-circle"></i>
-              </span>
-              <div class="message-body">
-                Lorem ipsum dolor sit amet, mea ne viderer veritus menandri, id scaevola gloriatur instructior sit.
               </div>
-            </article>
-          <pre><code class="language-javascript">let i = 0;</code></pre>
-        </div>
+          </div>
       </div>
     </div>
   </div>
