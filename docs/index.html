@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" >
-  <head>
+<head>
     <meta charset="UTF-8">
     <title>Cheatsheet Concept</title>
     <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png">
@@ -8,68 +8,120 @@
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css'>
     <link rel='stylesheet prefetch' href='https://use.fontawesome.com/releases/v5.3.1/css/all.css'>
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/themes/prism.min.css'>
-    <link rel="stylesheet" href="css/docs.css">
-  </head>
-  <body>
+	<link rel="stylesheet" href="css/docs.css">
+	<style>
+	.sticky {
+        position: -webkit-sticky;
+        position: -moz-sticky;
+        position: -o-sticky;
+        position: -ms-sticky;
+        position: sticky;
+        top: 10px;
+        z-index: 1;
+	  }
+	</style>
+</head>
+<body>
     <section class="hero is-primary">
-      <div class="hero-body">
-        <div class="columns">
-          <div class="column is-12">
-            <div class="container content">
-              <i class="is-large fab fa-discord"></i>
-              <i class="is-large fas fa-code"></i>
-              <h1 class="title">Learn <em>Web Basics</em> for new-dev</h1>
-              <h3 class="subtitle">
-              Collection of code and explanation to get you started
-              </h3>
-              <a href="https://github.com/#" target="_blank" class="button is-primary is-large">
-                <span class="icon">
-                  <i class="fab fa-github"></i>
-                </span>
-                <span>Github</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+    	<div class="hero-body">
+        	<div class="columns">
+        		<div class="column is-12">
+            		<div class="container content">
+              			<i class="is-large fab fa-discord"></i>
+              			<i class="is-large fas fa-code"></i>
+              			<h1 class="title">Learn <em>Web Basics</em> for new-dev</h1>
+              			<h3 class="subtitle">
+              				Collection of code and explanation to get you started
+              			</h3>
+              			<a href="https://github.com/#" target="_blank" class="button is-primary is-large">
+                			<span class="icon">
+                  				<i class="fab fa-github"></i>
+                			</span>
+                			<span>Github</span>
+              			</a>
+            		</div>
+          		</div>
+        	</div>
+      	</div>
     </section>
     <section class="section">
-      <div class="container">
-        <div class="columns">
-          <div class="column is-3">
-            <aside class="is-medium menu">
-          <p class="menu-label">
-            categories
-          </p>
-          <ul class="menu-list">
-            <li><a href="index.html" class="is-active"><i class="fab fa-html5"></i> Basic - HTML</a></li>
-            <li><a href="php.html" class=""><i class="fab fa-php"></i> Basic - PHP</a></li>
-            <li><a href="basic-mvc.html" class=""><i class="fab fa-web"></i> Basic - MVC</a></li>
-          </ul>
-              <p class="menu-label">
-                In This Category ...
-              </p>
-              <ul class="menu-list">
-                <li><span class="tag is-white is-medium">Part 1 - Basic HTML Structure</span></li>
-              </ul>
-            </aside>
-          </div>
-          <div class="column is-9">
-            <div class="content is-medium">
-          <h3 class="title is-3">Basic HTML ¯\_(ツ)_/¯</h3>
+    	<div class="container">
+        	<div class="columns">
+        		<div class="column is-3">
+            		<aside class="is-medium menu sticky">
+          				<p class="menu-label">
+            				categories
+          				</p>
+          				<ul class="menu-list">
+            				<li><a href="index.html" class="is-active"><i class="fab fa-html5"></i> Basic - HTML</a></li>
+            				<li><a href="php.html" class=""><i class="fab fa-php"></i> Basic - PHP</a></li>
+         					<li><a href="basic-mvc.html" class=""><i class="fab fa-web"></i> Basic - MVC</a></li>
+          				</ul>
+              			<p class="menu-label">
+                			In This Category ...
+              			</p>
+              			<ul class="menu-part">
+							<li><a href="#tags"><span class="tag is-white is-medium">Basic HTML Tags</span></a></li>
+							<li><a href="#structure"><span class="tag is-white is-medium">Basic HTML Structure</span></a></li>
+							<li><a href="#css"><span class="tag is-white is-medium">HTML with CSS</span></a></li>
+							<li><a href="#bootstrap"><span class="tag is-white is-medium">Bootstrap</span></a></li>
+              			</ul>
+            		</aside>
+          		</div>
+          		<div class="column is-9">
+            	<div class="content is-medium">
+          			<h3 class="title is-3">Basic HTML ¯\_(ツ)_/¯</h3>
+          			<p>This is a tutorial for creating your first web page using HTML ! yay ~<br>
+                	This part, i will explain basic HTML tags, structure and a little bit about web framework bootstrap ! woot!</p>
 
-              <p>This is the basic structure for common HTML files</p>
-              <div class="box">
-                <h4 id="const" class="title is-3">Layout</h4>
-                <article class="message is-primary">
-                  <span class="icon has-text-primary">
-                  <i class="fab fa-html5"></i>
-                  </span>
-                  <div class="message-body">
-                    This is a basic layout of HTML5
-                  </div>
-                </article>
-              <pre><code class="language-html">
+					<div class="box">
+                		<h4 id="tags" class="title is-3">Basic HTML tags</h4>
+                		<article class="message is-primary">
+                  			<span class="icon has-text-primary">
+                  				<i class="fab fa-html5"></i>
+                  			</span>
+                  			<div class="message-body">
+                    			This is a basic html tags that is commonly used.
+                  			</div>
+                		</article>
+<pre><code class="language-html">
+&lt;div&gt;&lt;/div&gt; --> is called Division, used to contain your web content in here <br />
+&lt;h1&gt;&lt;/h1&gt;, &lt;h2&gt;&lt;/h2&gt;, &lt;h3&gt;&lt;/h3&gt;, &lt;h4&gt;&lt;/h4&gt;, &lt;h5&gt;&lt;/h5&gt; --> this is a heading tags. 1 is biggest font and 5 is smallest font<br />
+&lt;p&gt;&lt;/p&gt; --> This is paragraph tags used when u want to type long sentence in html<br />
+&lt;ul&gt; --> Unordered List Tags. This is a list that is list unorderedly. This will display as bulletpoint<br />
+	&lt;li&gt;&lt;/li&gt; --> this a first item in the list using li tag<br />
+	&lt;li&gt;&lt;/li&gt; --> this a second item in the list using li tag<br />
+&lt;/ul&gt;<br />
+&lt;ol&gt; --> Ordered List Tags. This is a list that is list Orderly. This will display as 1, 2 and so on<br />
+	&lt;li&gt;&lt;/li&gt;--> this a first item in the list using li tag<br />
+	&lt;li&gt;&lt;/li&gt; --> this a second item in the list using li tag<br />
+&lt;/ol&gt;<br />
+&lt;button&gt;&lt;/button&gt; --> This is a button tag used as .. well a button<br />
+&lt;form&gt;&lt;/form&gt; --> This is a form tag used to submit data ~<br />
+&lt;img&gt;--> image tag used for IMAGE ! duh ~<br />
+<br />
+bonus HTML5 tags<br />
+&lt;nav&gt;&lt;/nav&gt; --> nav used for navigation bar<br />
+&lt;aside&gt;&lt;/aside&gt; --> aside used for Sidebar normally<br />
+&lt;main&gt; --> main is where ur main content of the site will be<br />
+	&lt;section&gt;&lt;/section&gt; --> section is the section of your content<br />
+&lt;/main&gt;<br />
+&lt;footer&gt;&lt;/footer&gt; --> footer of your site<br />
+
+</code></pre>
+					</div>
+
+              		<div class="box">
+                		<h4 id="structure" class="title is-3">Layout</h4>
+                		<article class="message is-primary">
+                  			<span class="icon has-text-primary">
+                  				<i class="fab fa-html5"></i>
+                  			</span>
+                  			<div class="message-body">
+                    		This is a basic layout of HTML5
+                  			</div>
+                		</article>
+<pre><code class="language-html">
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -107,8 +159,52 @@
 &lt;script type="text/javascript"&gt;
   
 &lt;/script&gt;
-            </code></pre>
-            </div>
+</code></pre>
+					</div>
+					
+					<br>
+					<p>So basically after using the tags to create a basic layout of a webpage this is how it usually look like<br>
+					P/S : You actually need some CSS rules to structure it that way :P</p>
+					
+					<img src="images/layout-html.png">
+
+					<h3 id="css" class="title is-3">HTML with CSS</h3>
+
+					<p>let's use bootstrap as our go-to css framework okay :P, i'm sure most of you have heard of it or might even used it !<br>
+					I will only cover the basic of it here ~ Just to help you construct your HTML structure ~ </p>
+
+					<p>Visit <a href="https://getbootstrap.com/docs/4.0/getting-started/introduction/">Bootstrap</a> for more details ~ </p>
+
+					<div class="box">
+                		<article class="message is-primary">
+                  			<span class="icon has-text-primary">
+                  				<i class="fab fa-html5"></i>
+                  			</span>
+                  			<div class="message-body">
+							This is how you include your bootstrap in your html file ~<br>
+							P/S: Make sure you place the link inside your &lt;head&gt;&lt;/head&gt; tag ~
+                  			</div>
+                		</article>
+<pre><code class="language-html">
+&lt;link rel='stylesheet prefetch' href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"&gt;
+</code></pre>
+					</div>
+
+					<br>
+					<h3 id="bootstrap" class="title is-3">Col and Row</h3>
+					<p>Personally I think what makes bootstrap easy to use and powerful is the col and row class. with the col and row class you can design you web page however you want !<br>
+					Row stands for Row(duh ~) and Col stands for column. The idea is, you seperate the screen into multiple row and column, specifically 12 column. You can have unlimited rows tho(not that you should~)</p>
+					
+					<p>This is how the screen is divided into 12 column with col class. Find out more about the <a href="https://getbootstrap.com/docs/4.0/layout/grid/">Bootstrap Grid here. !</a></p>
+
+					<img src="images/col-12.png">
+
+					<br><br>
+					<p>I'm sure you have read the grid documentation from bootstrap by now. If you don't, go read it now !<br>
+						So now i take it you understand what is col and row. So with row and col class you can design freely with your html tags now !</p>
+
+					<p>You can use them like so to structure your HTML ! </p>
+					<img src="images/layout-with-bootstrap.png">
       </div>
     </div>
   </div>
