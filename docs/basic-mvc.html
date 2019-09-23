@@ -89,6 +89,7 @@
           <p>This is a tutorial for creating your first web application using basic MVC structure.<p>
           <p>We will be using PHP programming language for this tutorial so you should at least have basic knowledge on programming, preferably PHP.</p>
 
+          <p>You can find the source code <a href="https://github.com/ashrafkamarudin/Web-Basics/tree/master/Basic-MVC">here!</a></p>
           <div id="gettingStarted">
             <br>
             <h2 class="title is-2">Getting Started</h2><hr>
@@ -160,19 +161,9 @@
                     This will contain all config settings
                   </div>
                 </article>
-
-            <pre><code class="language-php">
-/*
-* Database Settings
-*/
-
-// define a constant variable to store our database settings
-define('DB_TYPE', 'mysql');
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'MVC');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-            </code></pre>
+            <code class="language-php">
+              <img src="images/config.png">
+            </code>
 
             </div>
 
@@ -189,34 +180,9 @@ define('DB_PASS', '');
                   </div>
                 </article>
 
-            <pre><code class="language-php">
-class DB
-{
-
-  public static function connect($value='')
-  {
-    // create a new PDO connection
-    $pdo = new PDO(DB_TYPE.':host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    return $pdo;
-  }
-
-  public static function run($sql, $args = NULL)
-    {
-        if (!$args) // if no parameter
-        {
-          // run the query straight away without parameter binding
-             return DB::connect()->query($sql);
-        }
-        // prepare the sql query
-        $stmt = DB::connect()->prepare($sql);
-        // execute the query with bind parameter values
-        $stmt->execute($args);
-        return $stmt;
-    }
-}
-            </code></pre>
+            <code class="language-php">
+              <img src="images/database.png">
+            </code>
             </div>
 
             <p>Then create a <i class="is-file">Bootstrap.php</i> file. This file will require all class that will be used by our application.<br></p>
@@ -232,13 +198,9 @@ class DB
                   </div>
                 </article>
 
-            <pre><code class="language-php">
-session_start();
-
-require_once dirname(__FILE__) . '/Config.php';
-require_once dirname(__FILE__) . '/Database.php';
-// you can require more file here if you have more library to load
-            </code></pre>
+                <code class="language-php">
+                  <img src="images/bootstrap.png">
+                </code>
           </div><br>
 
           </div>
@@ -258,167 +220,10 @@ require_once dirname(__FILE__) . '/Database.php';
                   </div>
                 </article>
 
-              <pre><code class="language-php">
-/**
-* Model class for User
-*/
-class User
-{
-	public $table = 'users';
-	/*
-	* Attributes
-	* ----------
-	* if you want to use private then you should have setter and getter
-	* or using PHP magic methods, __SET and __GET
-	*/
-	public $id;
-	public $name;
-	public $email;
-	public $password;
-
-	/**
-	* Static method All()
-	* this method will retrieve all user data in database 
-	* and will return the data as array of user object
-	*/
-	public static function All()
-	{
-		$query = "SELECT * FROM users";
-
-		try {
-			// use static method run() from class DB 
-	    	if ($stmt = DB::run($query)) { // this will run the build query
-
-	    		// assign all of the data fetch from database to variable data
-				$users = $stmt->fetchAll(PDO::FETCH_ASSOC); // need to add fetchAll for pdo 
-														    // in order for pdo to retrieve the data from database
-
-				// return the array of users filled with user array
-				return $users;
-			};
-		} catch (PDOException $e) {
-			return $e->getMessage();
-		}
-	}
-
-	/**
-	* Static method getById()
-	* this method will retrieve 1 row of data from database
-	* based on the id passed to the method
-	* @param int id
-	*/
-	public static function getById($id)
-	{
-		$query = "SELECT * FROM users WHERE id = :id LIMIT 1";
-		$param = [':id' => $id]; // the parameter that will be bind by pdo
-
-		try {
-			// use static method run() from class DB 
-	    	if ($stmt = DB::Run($query, $param)) { // this will run the build query
-
-				// need to use fetch to retrieve only 1 row of data
-				$user = $stmt->fetch(PDO::FETCH_ASSOC); // this will retrieve the row of data
-													    // that is associated to the passed id
-
-				// return the user object
-				return $user;
-			};
-		} catch (PDOException $e) {
-			return $e->getMessage();
-		}
-	}
-
-	public function save()
-	{
-		$query = "INSERT INTO users (`name`, `email`, `password`) VALUES (:name, :email, :password)";
-		$param = [ // the parameter that will be bind by pdo
-			':name' => $this->name,
-			':email' => $this->email,
-			':password' => $this->password
-			];	
-		
-		try { 
-			// use static method run() from class DB
-	    	if ($stmt = DB::Run($query, $param)) { // we dont use fetch() or fetchAll() here
-												   // because no data will be return when we
-				                                   // perform update operation
-	    		return true;
-	    	};
-		} catch (PDOException $e) {
-			return $e->getMessage();
-		}
-	}
-
-	public function update()
-	{
-		$query = "UPDATE `users` SET `name`=:name, `email`=:email, `password`=:password WHERE `id`=:id";
-		$param = [ // the parameter that will be bind by pdo
-			':name' => $this->name,
-			':email' => $this->email,
-			':password' => $this->password,
-			':id' => $this->id
-			];	
-		
-		try {
-			// use static method run() from class DB
-	    	if ($stmt = DB::Run($query, $param)) { // we dont use fetch() or fetchAll() here
-												   // because no data will be return when we
-				                                   // perform update operation
-	    		return true;
-	    	};
-		} catch (PDOException $e) {
-			return $e->getMessage();
-		}
-	}
-
-	public function delete()
-	{
-		$query = "DELETE FROM $this->table WHERE id=:id";
-		$param = [':id' => $this->id]; // the parameter that will be bind by pdo
-
-		try {
-			// use static method run() from class DB
-			if ($stmt = DB::Run($query, $param)) { // we dont use fetch() or fetchAll() here
-												   // because no data will be return when we
-				                                   // perform delete operation
-				return true;
-			}
-		} catch (PDOException $e) {
-			return $e->getMessage();
-		}
-	}
-
-	public static function searchable($where_column, $data)
-	{
-		$query = "SELECT * FROM users WHERE `name` LIKE :where_param";
-		echo $where_param = "%$data%";
-		$param = [':where_param' => $where_param];
-
-		try {
-			// use static method run() from class DB
-			if ($stmt = DB::Run($query, $param)) { 
-
-				echo $stmt->queryString;
-
-				// assign all of the data fetch from database to variable data
-				$users=$stmt->fetchAll(PDO::FETCH_ASSOC); // need to add fetchAll for pdo 
-														 // in order for pdo to retrieve the data from database
-
-				if ($data == NULL) {
-					$return = 'no data found';
-
-					return $return;
-				}
-
-				// return the array of users filled with user array
-				return $users;
-			}
-		} catch (PDOException $e) {
-			return $e->getMessage();
-		}
-	}
-}
-              </code></pre>
+                <code class="language-php">
+                  <img src="images/user-1.png">
+                  <img src="images/user-2.png">
+                </code>
 
               </div>
             </div><br>
@@ -448,105 +253,9 @@ class User
                   </div>
                 </article>
 
-            <pre><code class="language-php">
-require_once '../Model/User.php';
-
-/**
-* 
-*/
-class UserController
-{
-
-	public function index($value='')
-	{
-		// assign the returned values(array of user object) to variable users
-		$users = User::All(); // we use the static method All() that we
-							  // created in user model to retrieve all 
-							  // data for user
-		return $users;
-	}
-
-	public function add($value='')
-	{
-		// create new user object
-		$user = new User();
-
-		// set the attributes of user object
-		$user->name = $_POST['name'];
-		$user->email = $_POST['email'];
-		$user->password = $_POST['password'];
-
-		// save new user into database
-		$user->save();
-
-		// set message
-		Session::setFlash(['New record succesfully added'], 'success');
-		return $this->redirect('index.php');
-	}
-
-	public function get($id)
-	{
-		// get user object associate with $id
-		$user = User::getById($id);
-
-		// return user object with the user details
-		return $user;
-	}
-
-	public function update($id)
-	{
-		// get user data associate with $id
-		$findUser = User::getById($id);
-
-		// update/set the attributes of the user
-		$user = new User();
-		$user->id = $findUser['id'];
-		$user->name = $_POST['name'];
-		$user->email = $_POST['email'];
-		$user->password = $_POST['password'];
-
-		// update the user data in database
-		$user->update();
-
-		// set message
-		Session::setFlash(['The record has been updated'], 'success');
-
-		// redirect the page
-		return $this->redirect('index.php');
-	}
-
-	public function destroy($id)
-	{
-		// get user data associate with $id
-		$findUser = User::getById($id);
-
-		// update/set the attributes of the user
-		$user = new User();
-		$user->id = $findUser['id'];
-		// delete the user
-		$user->delete();
-
-		// set message
-		Session::setFlash(['The record has been successfully deleted'], 'success');
-
-		// redirect the page
-		return $this->redirect('index.php');
-	}
-
-	public function search($value='')
-	{
-		
-		$users = User::Searchable('name', $_GET['q']);
-
-		return $users;
-	}
-
-	public function redirect($url) {
-        header('Location: '.$url);
-        exit();
-    }
-}
-              </code></pre>
+                <code class="language-php">
+                  <img src="images/usercontroller.png">
+                </code>
 
               </div>
           </div>
