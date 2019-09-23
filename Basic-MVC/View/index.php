@@ -16,7 +16,7 @@ if (isset($_POST['delete'])) {
 <html>
 <head>
   <title></title>
-  <link href="bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="http://Basic-MVC.test/view/bootstrap.css" rel="stylesheet" type="text/css">
 </head>
 <body>
   <main>
